@@ -42,7 +42,7 @@ install_helm() {
     if ! command -v helm; then
         echo "Helm is missing"
         get_helm
-    elif ! [[ $(helm version --short -c) == *${HELM_VERSION}* ]]; then
+    elif ! [[ $(helm version --short -c) == *${HELM_VERSION}* ]] &&  ! [[ ${HELM_VERSION} == any ]]; then
         echo "Helm $(helm version --short -c) is not desired version"
         get_helm
     fi
